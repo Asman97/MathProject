@@ -4,9 +4,9 @@ public class Main {
 
     private static Scanner scanner;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         scanner = new Scanner(System.in);
-        boolean restart = true;
+        boolean restart;
         do {
             mainAction();
             restart = Continue();
@@ -21,43 +21,49 @@ public class Main {
 
     }
 
-    private static void mainAction() {
+    private static void mainAction() throws Exception {
 
         try {
-        System.out.println();   
-        System.out.println("Which program do you need?");
+            System.out.println();
+            System.out.println("Enter the number to select an option:");
 
-        String lineA = "For Multiplication table, enter 1";
-        String lineB = "For Prime Number Checker, enter 2";
-        String lineC = "For Fibonacci Series, enter 3";
-        String lineD = "For Guess the Number Game, enter 4";
-        String lineE = "To quit, enter 'q'";
-       
-        System.out.println(lineA + "\n" + lineB + "\n" + lineC + "\n" + lineD + "\n" + lineE + "\n");
+            String lineA = "1. Multiplication table.";
+            String lineB = "2. Prime Number Checker.";
+            String lineC = "3. Fibonacci Series.";
+            String lineD = "4. Guess the Number Game.";
+            String lineE = "To quit, enter 'q'";
 
-        String input = scanner.next();
-        System.out.println("You chose " + input);
-        if (input.equals("1")) {
-            MultiplicationTable.run(scanner);
+            System.out.println("\n" + lineA + "\n" + "\n" + lineB + "\n" + "\n" + lineC + "\n" + "\n" + lineD + "\n"
+                    + "\n" + lineE + "\n" + "\n");
 
+            String input = scanner.next();
+            System.out.println("\n" + "You chose " + input);
+            if (input.equals("1")) {
+                MultiplicationTable.run(scanner);
+
+            } else if (input.equals("2")) {
+                PrimeNumberChecker.run2(scanner);
+            } else if (input.equals("3")) {
+                fibonacciSequence.run3(scanner);
+            } else if (input.equals("4")) {
+                GuessTheNumber.run4(scanner);
+            } else if (input.equals("q")) {
+                quitCommand.run5(scanner);
+            }
         }
-        else if (input.equals("2")) {
-            PrimeNumberChecker.run2(scanner);
+
+        catch (Exception e) {
+            catchFailure();
         }
-        else if(input.equals("3")){
-            fibonacciSequence.run3(scanner);
-        }
-        else if(input.equals("4")){
-            GuessTheNumber.run4(scanner);
-        }
-        else if(input.equals("q")){
-            quitCommand.run5(scanner);
-        }
+
     }
-       catch (Exception e) {
-            System.out.println("Please choose one of the given choices!");
-        }
 
+    private static void catchFailure() throws Exception {
+        String input = scanner.next();
+        if (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")
+                && !input.equals("q"))
+            ;
+        throw new Exception("Your input is invalid!");
     }
 
 }
