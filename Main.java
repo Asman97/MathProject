@@ -6,22 +6,18 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         scanner = new Scanner(System.in);
-        boolean restart;
+        
         do {
             mainAction();
-            restart = Continue();
-        } while (restart);
+            
+        } while (true);
 
+        
     }
+   
 
-    private static boolean Continue() {
 
-        // return scanner.hasNext();
-        return true;
-
-    }
-
-    private static void mainAction() throws Exception {
+    private static boolean mainAction() throws Exception {
 
         try {
             System.out.println();
@@ -47,9 +43,12 @@ public class Main {
                 fibonacciSequence.run3(scanner);
             } else if (input.equals("4")) {
                 GuessTheNumber.run4(scanner);
-            } else if (input.equals("q")) {
+            } 
+            else if (input.equals("q")) {
                 quitCommand.run5(scanner);
-            } else {
+                return true;
+            } 
+            else {
                 System.out.println("Your input is invalid!");
             }
 
@@ -59,6 +58,7 @@ public class Main {
             System.out.println("An error occured:");;
             System.out.println(e);
         }
+        return false;
 
     }
 

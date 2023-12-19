@@ -6,13 +6,11 @@ public class fibonacciSequence {
     public static void run3(Scanner scanner) {
 
         System.out.println("Enter how long you want the Fibonacci series to be.");
+         Integer n = getUserInput4(scanner);
         
 
-        Integer n = scanner.nextInt();
-        if (n == 0) {
-            System.out.println("Enter the number greater than 0");
-            getUserInput4(scanner);
-        }
+        n = scanner.nextInt();
+
         fibonacciCache = new long[n + 1];
 
         for (int i = 0; i <= n; i++) {
