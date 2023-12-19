@@ -25,7 +25,7 @@ public class Main {
 
         try {
             System.out.println();
-            System.out.println("Enter the number to select an option:");
+            System.out.println("\n" + "Enter the number to select an option:");
 
             String lineA = "1. Multiplication table.";
             String lineB = "2. Prime Number Checker.";
@@ -49,21 +49,17 @@ public class Main {
                 GuessTheNumber.run4(scanner);
             } else if (input.equals("q")) {
                 quitCommand.run5(scanner);
+            } else {
+                System.out.println("Your input is invalid!");
             }
+
         }
 
         catch (Exception e) {
-            catchFailure();
+            System.out.println("An error occured:");;
+            System.out.println(e);
         }
 
-    }
-
-    private static void catchFailure() throws Exception {
-        String input = scanner.next();
-        if (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")
-                && !input.equals("q"))
-            ;
-        throw new Exception("Your input is invalid!");
     }
 
 }

@@ -5,10 +5,14 @@ public class fibonacciSequence {
 
     public static void run3(Scanner scanner) {
 
-        System.out.println("Please enter how long you want the Fibonacci series to be.");
+        System.out.println("Enter how long you want the Fibonacci series to be.");
+        
 
         Integer n = scanner.nextInt();
-
+        if (n == 0) {
+            System.out.println("Enter the number greater than 0");
+            getUserInput4(scanner);
+        }
         fibonacciCache = new long[n + 1];
 
         for (int i = 0; i <= n; i++) {
@@ -30,30 +34,14 @@ public class fibonacciSequence {
         fibonacciCache[n] = nthFibonacciNumber;
         return nthFibonacciNumber;
     }
+    private static int getUserInput4(Scanner scanner) {
+        if (scanner.hasNextInt()) {
+            int guessedNumber = scanner.nextInt();
+            return guessedNumber;
+        } else {
+            scanner.next();
+        }
+        System.out.println("Your input was invalid, please enter a number:");
+        return getUserInput4(scanner);
+    }
 }
-
-/*
- * System.out.
- * println("Please enter how long you want the Fibonacci series to be.");
- * int a = scanner.nextInt();
- * int b = scanner.nextInt();
- * int c = scanner.nextInt();
- * 
- * int count = 0;
- * 
- * for(int i=a; i<=b; i++){
- * if(i%a == 0){
- * count ++;
- * }
- * }
- * System.out.println(count);
- */
-
-/*
- * static int fibo(int n){
- * if (n==1 || n==2) {
- * return 1;
- * }
- * return fibo(n-1) + fibo(n-2);
- * }
- */
