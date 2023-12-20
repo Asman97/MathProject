@@ -27,10 +27,15 @@ public class Main {
             String lineB = "2. Prime Number Checker.";
             String lineC = "3. Fibonacci Series.";
             String lineD = "4. Guess the Number Game.";
-            String lineE = "To quit, enter 'q'";
+            String lineE = "5. Palindrome Checker";
+            String lineF = "6. String Reversal ";
+            String lineG = "7. Array Sorting";
+            String lineH = "8. Array Manipulation.";
+            String lineK = "To quit, enter 'q'";
+            
 
             System.out.println("\n" + lineA + "\n" + "\n" + lineB + "\n" + "\n" + lineC + "\n" + "\n" + lineD + "\n"
-                    + "\n" + lineE + "\n" + "\n");
+                    + "\n" + lineE + "\n" + "\n" + lineF +"\n" + "\n"+ lineG + "\n" + "\n" + lineH + "\n" + "\n" + lineK + "\n" + "\n");
 
             String input = scanner.next();
             System.out.println("\n" + "You chose " + input);
@@ -44,6 +49,16 @@ public class Main {
             } else if (input.equals("4")) {
                 GuessTheNumber.run4(scanner);
             } 
+            else if (input.equals("5")) {
+                PalindromeChecker.firstProg(scanner);
+    
+            } else if (input.equals("6")) {
+                StringReversal.secondProg(scanner);
+            } else if (input.equals("7")) {
+                ArraySorting.thirdProg(scanner);
+            } else if (input.equals("8")) {
+                ArrayManipulation.fourthProg(scanner);
+            }
             else if (input.equals("q")) {
                 quitCommand.run5(scanner);
                 return true;
