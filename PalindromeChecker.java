@@ -1,30 +1,62 @@
 
-// Java program to find palindrome number
+
 import java.util.*;
 
 public class PalindromeChecker {
    public static void firstProg(Scanner scanner) {
 
-      try {
-         
-      String userInput, reversed = "";
+      System.out.println("Which word would you like to check?");
+     
+		String inputString = scanner.next();
 
-      System.out.println("\n" + "Which word would you like to check?" + "\n");
-      userInput = scanner.nextLine();
+		
+		inputString = inputString.toLowerCase();
+		
+		if (isPalindrome(inputString)){
 
-      int length = userInput.length();
-
-      for (int i = length - 1; i >= 0; i--)
-         reversed = reversed + userInput.charAt(i);
-
-      if (userInput.equals(reversed))
-         System.out.println(userInput + " is a palindrome :)");
-      else
-         System.out.println(userInput + " is not a palindrome");
-      } catch (Exception e) {
-         System.out.println("Error occured");
+			
+			System.out.print("It's palindrome :)");
       }
 
-
+		else{
+        
+			System.out.print("It's not palindrome");
+      }
    }
+
+   	static boolean isPalindrome(String inpuString){
+
+
+		int start = 0, end = inpuString.length() - 1;
+
+		// While there are characters to compare
+		while (start < end) {
+
+			// If there is a mismatch
+			if (inpuString.charAt(start) != inpuString.charAt(end))
+				return false;
+
+			// Increment first pointer and
+			// decrement the other
+			start++;
+			end--;
+		}
+
+		// Given string is a palindrome
+		return true;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
