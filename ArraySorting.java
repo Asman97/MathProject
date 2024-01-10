@@ -10,7 +10,7 @@ public class ArraySorting {
         System.out.println("Enter the elements of the array: ");
         // array is a reference, all are same array.
         int[] array = new int[numOfElements];
-        
+
         
         
 
@@ -21,9 +21,10 @@ public class ArraySorting {
         bubbleSortAlgorithm(array);
 
         System.out.println("Sorted array:");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-            int putComa = array.length;
+        String arrayAsInt = String.format("%d", array);
+        String[] splittedArray = arrayAsInt.split(", ");
+        for (String myStr: splittedArray) {
+            System.out.print(myStr);
         }
 
     }
