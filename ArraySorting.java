@@ -2,44 +2,37 @@ import java.util.Scanner;
 
 public class ArraySorting {
 
-    public static void thirdProg(Scanner scanner) {
+    public static int[] thirdProg(Scanner scanner) {
 
-        System.out.println("Enter the number of elements in the array: ");
-        int numOfElements = scanner.nextInt();
-
-        System.out.println("Enter the elements of the array: ");
-        // array is a reference, all are same array.
-        int[] array = new int[numOfElements];
-
-        
-        
-
-        for (int i = 0; i < array.length; i++) {
-            array[i] = scanner.nextInt();
+        System.out.print("Enter elements with a ',' in between: ");
+        String numbers = scanner.next();
+        String[] numberArray = numbers.split(",");
+        int[] intArray = new int[numberArray.length];
+        for (int i = 0; i < numberArray.length; i++) {
+            intArray[i] = Integer.parseInt(numberArray[i]);
         }
 
-        bubbleSortAlgorithm(array);
-
-        System.out.println("Sorted array:");
-        String arrayAsInt = String.format("%d", array);
-        String[] splittedArray = arrayAsInt.split(", ");
-        for (String myStr: splittedArray) {
-            System.out.print(myStr);
-        }
-
-    }
-
-    static void bubbleSortAlgorithm(int[] array) {
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int index = 0; index < array.length - i - 1; index++) {
-                if (array[index] > array[index + 1]) {
-                    int tempVarToSwap = array[index];
-                    array[index] = array[index + 1];
-                    array[index + 1] = tempVarToSwap;
+        for (int k = 0; k < intArray.length; k++) {
+            boolean rememberSwap = false;
+            for (int i = 0; i < intArray.length - 1; i++) {
+                if (intArray[i] > intArray[i + 1]) {
+                    int tempVarToSwap = intArray[i];
+                    intArray[i] = intArray[i + 1];
+                    intArray[i + 1] = tempVarToSwap;
                 }
             }
+            if (!rememberSwap) {
+              break;
+            }
         }
+        return intArray;
     }
-    // theres no need to return since we're working on the same array
 
+    public static void output(int[] intArray) {
+        System.out.print("Soted Array: ");
+        for (int i = 0; i < intArray.length - 1; i++) {
+            System.out.print(intArray[i] + ", ");
+        }
+        System.out.print(intArray[intArray.length - 1]);
+    }
 }
