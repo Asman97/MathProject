@@ -2,51 +2,58 @@
 import java.util.Scanner;
 
 public class ArrayManipulation {
-    public static void fourthProg(Scanner scanner) {
+	public static void run(Scanner scanner) {
+		boolean restart = true;
+		while (restart) {
+
+			resultArrayManipulation(scanner);
+			restart = HelperMethods.getRestart(scanner, "Array Manipulation");
+		}
+
+	}
+
+	public static void resultArrayManipulation(Scanner scanner) {
 		int arrayLength = 0;
 
-		System.out.println("How long do you want your array to be? ");
+		System.out.println("\n\nHow long do you want your array to be? \n");
 		arrayLength = scanner.nextInt();
 		double[] myArray = new double[arrayLength];
 
-		//min
+		// min
 		double min = Double.MAX_VALUE;
 
-		//max
+		// max
 		double max = Double.MAX_VALUE;
 
-		for(int i = 0; i < arrayLength; i++){
-			System.out.println("#" + (i+1) + ": ");
+		for (int i = 0; i < arrayLength; i++) {
+			System.out.println("\n#" + (i + 1) + ": ");
 			myArray[i] = scanner.nextDouble();
 			System.out.println("");
 		}
 
-		//sum
+		// sum
 		double sum = 0;
-		for(int i = 0; i < myArray.length; i++){
+		for (int i = 0; i < myArray.length; i++) {
 			sum = sum + myArray[i];
 		}
-		//average
-		double average = 0; 
-		average = sum/arrayLength;
+		// average
+		double average = 0;
+		average = sum / arrayLength;
 
 		// min
-		for (int i = 0; i<arrayLength; i++){
+		for (int i = 0; i < arrayLength; i++) {
 			min = Math.min(min, myArray[i]);
 		}
 
-		//max
-		for(int i = 0; i < arrayLength; i++){
-			max=Math.max(max, myArray[i]);
+		// max
+		for (int i = 0; i < arrayLength; i++) {
+			max = Math.max(max, myArray[i]);
 		}
 
-	 //outputs
-	 System.out.println("The sum is: " + sum);
-	 System.out.println("The average is: " + average);
-	 System.out.println("The minimum is: " + min);
-	 System.out.println("The maximum is: " + max);
-
+		// outputs
+		System.out.println("\nThe sum is: " + sum + "\n");
+		System.out.println("\nThe average is: " + average + "\n");
+		System.out.println("\nThe minimum is: " + min + "\n");
+		System.out.println("\nThe maximum is: " + max + "\n");
+	}
 }
-}
-
-    

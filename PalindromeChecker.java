@@ -1,62 +1,52 @@
 
-
 import java.util.*;
 
 public class PalindromeChecker {
-   public static void firstProg(Scanner scanner) {
+	public static void run(Scanner scanner) {
 
-      System.out.println("Which word would you like to check?");
-     
-		String inputString = scanner.next();
+		boolean restart = true;
+		while (restart) {
+			resultPalindrome(getPalindrome(scanner));
+			restart = HelperMethods.getRestart(scanner, "Palindrome Checker");
+		}
 
-		
+	}
+
+	public static String getPalindrome(Scanner wordInput) {
+		System.out.print("\n\nWhich word would you like to check? : ");
+
+		return HelperMethods.getWord(wordInput);
+	}
+
+	public static void resultPalindrome(String wordInput) {
+
+		String inputString = wordInput;
+
 		inputString = inputString.toLowerCase();
-		
-		if (isPalindrome(inputString)){
 
-			
-			System.out.print("It's palindrome :)");
-      }
+		if (isPalindrome(inputString)) {
 
-		else{
-        
-			System.out.print("It's not palindrome");
-      }
-   }
+			System.out.print("\nIt's palindrome :) \n");
+		}
 
-   	static boolean isPalindrome(String inpuString){
+		else {
 
+			System.out.print("\nIt's not palindrome\n");
+		}
+	}
+
+	static boolean isPalindrome(String inpuString) {
 
 		int start = 0, end = inpuString.length() - 1;
 
-		// While there are characters to compare
 		while (start < end) {
 
-			// If there is a mismatch
 			if (inpuString.charAt(start) != inpuString.charAt(end))
 				return false;
 
-			// Increment first pointer and
-			// decrement the other
-			start++;
 			end--;
 		}
 
-		// Given string is a palindrome
 		return true;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
