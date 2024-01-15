@@ -13,7 +13,7 @@ public class FibonacciSeries {
     }
 
     private static void resultFibonacci(Scanner inputScanner) {
-        System.out.println("\n\nEnter how long you want the Fibonacci series to be.\n");
+        System.out.println("\n\nEnter how long you want the Fibonacci series to be, max is 92.\n");
         
 
         Integer n = inputScanner.nextInt();
