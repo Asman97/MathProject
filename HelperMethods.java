@@ -56,9 +56,7 @@ public class HelperMethods {
       scWord.next();
     }
     scWord.nextLine();
-    String input = scWord.nextLine();
-
-    return input;
+    return scWord.nextLine();
   }
 
   public static boolean getRestart(Scanner scanner, String name) {
@@ -68,11 +66,6 @@ public class HelperMethods {
       " enter 'y', to stop the program enter something else : \n\n"
     );
     String choice = scanner.next();
-    Boolean restart = false;
-
-    if (choice.equalsIgnoreCase("y")) {
-      restart = true;
-    }
-    return restart;
+    return choice.equalsIgnoreCase("y");
   }
 }

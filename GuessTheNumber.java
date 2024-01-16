@@ -5,12 +5,12 @@ public class GuessTheNumber {
   public static void run(Scanner scanner) {
     boolean restart = true;
     while (restart) {
-      GuessingTheNumber(scanner);
+      guessingTheNumber(scanner);
       restart = HelperMethods.getRestart(scanner, "Guess Number Game");
     }
   }
 
-  public static void GuessingTheNumber(Scanner input) {
+  public static void guessingTheNumber(Scanner input) {
     System.out.println(
       "\nGuess the number between 0 and 50,you have 5 trials!\n"
     );

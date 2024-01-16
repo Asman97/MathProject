@@ -35,40 +35,40 @@ public class Main {
       return false;
     } else if (!input.matches("[1-8]+")) {
       return true;
-    } else {
-      int userChoices = Integer.parseInt(input);
-      if (userChoices < 1 || userChoices > 8) {
-        System.out.println("\n'" + userChoices + "' is not a valid input");
-      } else {
-        switch (userChoices) {
-          case 1:
-            MultiplicationTable.run(scanner);
-            break;
-          case 2:
-            PrimeNumberChecker.run(scanner);
-            break;
-          case 3:
-            FibonacciSeries.run(scanner);
-            break;
-          case 4:
-            GuessTheNumber.run(scanner);
-            break;
-          case 5:
-            PalindromeChecker.run(scanner);
-            break;
-          case 6:
-            StringReversal.run(scanner);
-            break;
-          case 7:
-            ArraySorting.run(scanner);
-            break;
-          case 8:
-            ArrayManipulation.run(scanner);
-            break;
-          default:
-            break;
-        }
-      }
+    }
+    int userChoices = Integer.parseInt(input);
+    if (userChoices < 1 || userChoices > 8) {
+      System.out.println("\n'" + userChoices + "' is not a valid input");
+      return true;
+    }
+
+    switch (userChoices) {
+      case 1:
+        MultiplicationTable.run(scanner);
+        break;
+      case 2:
+        PrimeNumberChecker.run(scanner);
+        break;
+      case 3:
+        FibonacciSeries.run(scanner);
+        break;
+      case 4:
+        GuessTheNumber.run(scanner);
+        break;
+      case 5:
+        PalindromeChecker.run(scanner);
+        break;
+      case 6:
+        StringReversal.run(scanner);
+        break;
+      case 7:
+        ArraySorting.run(scanner);
+        break;
+      case 8:
+        ArrayManipulation.run(scanner);
+        break;
+      default:
+        break;
     }
 
     return true;

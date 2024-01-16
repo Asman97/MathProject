@@ -5,13 +5,13 @@ public class ArraySorting {
   public static void run(Scanner scanner) {
     boolean restart = true;
     while (restart) {
-      int[] intArray = SortingTheArray(scanner);
+      int[] intArray = sortingTheArray(scanner);
       SortedArray(intArray);
       restart = HelperMethods.getRestart(scanner, "Array sorting");
     }
   }
 
-  private static int[] SortingTheArray(Scanner scanner) {
+  private static int[] sortingTheArray(Scanner scanner) {
     System.out.print("\n\nEnter Elements with a ',' in between: ");
     String numbers = scanner.next();
     String[] numberArray = numbers.split(",");
@@ -21,16 +21,16 @@ public class ArraySorting {
     }
 
     for (int l = 0; l < intArray.length; l++) {
-      boolean VarToSwap = false;
+      boolean hasSwapped = false;
       for (int i = 0; i < intArray.length - 1; i++) {
         if (intArray[i] > intArray[i + 1]) {
           int temp = intArray[i];
           intArray[i] = intArray[i + 1];
           intArray[i + 1] = temp;
-          VarToSwap = true;
+          hasSwapped = true;
         }
       }
-      if (!VarToSwap) {
+      if (!hasSwapped) {
         break;
       }
     }

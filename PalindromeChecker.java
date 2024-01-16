@@ -17,7 +17,6 @@ public class PalindromeChecker {
 
   public static void checkForPalindrome(String userInput) {
     String inputString = userInput;
-
     inputString = inputString.toLowerCase();
 
     if (isItPalindrome(inputString)) {
@@ -29,7 +28,7 @@ public class PalindromeChecker {
 
   private static boolean isItPalindrome(String inpuString) {
     int start = 0, end = inpuString.length() - 1;
-    while (start < end) {
+    while (start <= end) {
       if (inpuString.charAt(start) != inpuString.charAt(end)) {
         return false;
       }

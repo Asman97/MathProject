@@ -20,6 +20,7 @@ public class FibonacciSeries {
       System.out.print(
         "\nYour number was either too low (below 0) or too high (above 93) : "
       );
+      return;
     } else {
       long firstArray = 0, secondArray = 1;
       System.out.println("\nFibonacci Series of " + userInput + " 3is: \n");
