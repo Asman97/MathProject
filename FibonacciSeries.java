@@ -1,42 +1,39 @@
 import java.util.Scanner;
 
 public class FibonacciSeries {
-    private static long[] fibonacciCache;
 
-    public static void run(Scanner scanner) {
-        boolean restart = true ;
- 
-        while(restart){
-            resultFibonacci(scanner);
-            restart = HelperMethods.getRestart(scanner, "Fibonacci Series");
-        }
+  public static void run(Scanner scanner) {
+    boolean restart = true;
+    while (restart) {
+      processingFibonacci(scanner);
+      restart = HelperMethods.getRestart(scanner, "Fibonacci Series");
     }
+  }
 
-    private static void resultFibonacci(Scanner inputScanner) {
-        System.out.println("\n\nEnter how long you want the Fibonacci series to be, max is 92.\n");
-        
+  private static void processingFibonacci(Scanner inputScanner) {
+    System.out.println(
+      "\n\nEnter how long you want the Fibonacci series to be, max is 92.\n"
+    );
+    Integer userInput = inputScanner.nextInt();
 
-        Integer n = inputScanner.nextInt();
+    if (userInput < 1 || userInput > 93) {
+      System.out.print(
+        "\nYour number was either too low (below 0) or too high (above 93) : "
+      );
+    } else {
+      long firstArray = 0, secondArray = 1;
+      System.out.println("\nFibonacci Series of " + userInput + " 3is: \n");
 
-        fibonacciCache = new long[n + 1];
-
-        for (int i = 0; i <= n; i++) {
-            System.out.print(fibonacci(i) + " ");
-
+      for (int i = 1; i <= userInput; i++) {
+        System.out.print(firstArray);
+        if (i <= userInput - 1) {
+          System.out.print(", ");
         }
+
+        long nextArray = firstArray + secondArray;
+        firstArray = secondArray;
+        secondArray = nextArray;
+      }
     }
-
-    private static long fibonacci(int n) {
-        if (n <= 1) {
-            return n;
-        }
-
-        if (fibonacciCache[n] != 0) {
-            return fibonacciCache[n];
-        }
-        long nthFibonacciNumber = (fibonacci(n - 1) + fibonacci(n - 2));
-        fibonacciCache[n] = nthFibonacciNumber;
-        return nthFibonacciNumber;
-    }
-
+  }
 }
