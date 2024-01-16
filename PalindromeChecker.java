@@ -26,14 +26,16 @@ public class PalindromeChecker {
     }
   }
 
-  private static boolean isItPalindrome(String inpuString) {
-    int start = 0, end = inpuString.length() - 1;
+  private static boolean isItPalindrome(String inputString) {
+    int start = 0, end = inputString.length() - 1;
     while (start <= end) {
-      if (inpuString.charAt(start) != inpuString.charAt(end)) {
+      if (inputString.charAt(start) != inputString.charAt(end)) {
         return false;
       }
+      start++;  
       end--;
     }
     return true;
   }
 }
+
