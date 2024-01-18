@@ -11,35 +11,46 @@ public class GuessTheNumber {
   }
 
   public static void guessingTheNumber(Scanner input) {
-    System.out.println(
-      "\nGuess the number between 0 and 50,you have 5 trials!\n"
-    );
-    Integer guessedNumber = input.nextInt();
+    System.out.println("\nGuess the number between 1 and 50, you have 5 trials!\n");
 
-    //This code is to stay between the numbers 0 and 50
-    if (guessedNumber > 50) {
-      System.out.println("\nThe number is out of valid range!\n");
-    }
-    int number = 1 + (int) (50 * Math.random());
-
+    int number = generateRandomNumber();
     int trials = 5;
 
     for (int i = 0; i < trials; i++) {
-      guessedNumber = input.nextInt();
+      int guessedNumber = getUserGuess(input);
 
       if (guessedNumber == number) {
-        System.out.println("\nCongrats! Thats Correct!\n");
-      } else if (number > guessedNumber && i != trials - 1) {
-        System.out.println(
-          "\nYour number is greater than the number to guess.\n"
-        );
-      } else if (number < guessedNumber && i != trials - 1) {
-        System.out.println("\nYour number is less than the number to guess\n");
+        System.out.println("\nCongratulations! That's correct!\n");
+        return; // Exit the method since the guess is correct
+      } else if (guessedNumber < number) {
+        System.out.println("\nYour guess is too low.\n");
+      } else {
+        System.out.println("\nYour guess is too high.\n");
       }
     }
-    if (trials == 5) {
-      System.out.println("\nYou used all 5 trials.\n");
-      System.out.println("The number was " + number);
+
+    System.out.println("\nYou used all 5 trials.\n");
+    System.out.println("The number was " + number);
+  }
+
+  private static int getUserGuess(Scanner input) {
+    while (true) {
+      System.out.print("Enter your guess: ");
+      if (input.hasNextInt()) {
+        int guessedNumber = input.nextInt();
+        if (guessedNumber >= 1 && guessedNumber <= 50) {
+          return guessedNumber;
+        } else {
+          System.out.println("Please enter a number between 1 and 50.");
+        }
+      } else {
+        System.out.println("Invalid input. Please enter a valid number.");
+        input.next(); // Consume the invalid input
+      }
     }
+  }
+
+  private static int generateRandomNumber() {
+    return 1 + (int) (50 * Math.random());
   }
 }

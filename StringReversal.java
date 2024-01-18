@@ -11,7 +11,7 @@ public class StringReversal {
   }
 
   private static String getUserInput(Scanner getInput) {
-    System.out.print("\n\nWhich String would you like to revers? : ");
+    System.out.print("\n\nWhich String would you like to revers? : \n");
     return HelperMethods.getWord(getInput);
   }
 

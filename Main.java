@@ -33,16 +33,24 @@ public class Main {
     String input = scanner.next();
     if (input.equalsIgnoreCase("q")) {
       return false;
-    } else if (!input.matches("[1-8]+")) {
-      return true;
-    }
-    int userChoices = Integer.parseInt(input);
-    if (userChoices < 1 || userChoices > 8) {
-      System.out.println("\n'" + userChoices + "' is not a valid input");
-      return true;
     }
 
-    switch (userChoices) {
+    try {
+      int userChoice = Integer.parseInt(input);
+      if (userChoice < 1 || userChoice > 8) {
+        System.out.println("\n'" + userChoice + "' is not a valid input. Please choose a number between 1 and 8.");
+      } else {
+        performSelectedAction(userChoice, scanner);
+      }
+    } catch (NumberFormatException e) {
+      System.out.println("\nInvalid input. Please enter a valid number between 1 and 8.");
+    }
+
+    return true;
+  }
+
+  private static void performSelectedAction(int userChoice, Scanner scanner) {
+    switch (userChoice) {
       case 1:
         MultiplicationTable.run(scanner);
         break;
@@ -70,7 +78,6 @@ public class Main {
       default:
         break;
     }
-
-    return true;
   }
+
 }

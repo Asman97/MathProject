@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class PalindromeChecker {
 
@@ -11,13 +11,26 @@ public class PalindromeChecker {
   }
 
   public static String getUserInput(Scanner userInput) {
-    System.out.print("\n\nWhich word would you like to check? : ");
-    return HelperMethods.getWord(userInput);
+    String input = "";
+    boolean validInput = false;
+
+    while (!validInput) {
+      System.out.print("\n\nWhich word would you like to check? : ");
+      input = userInput.nextLine().trim(); // Use nextLine to allow spaces, and trim to remove leading/trailing spaces
+
+      // Check if the input contains only letters
+      if (input.matches("^[a-zA-Z]+$")) {
+        validInput = true;
+      } else {
+        System.out.println("Invalid input. Please enter only letters.");
+      }
+    }
+
+    return input;
   }
 
   public static void checkForPalindrome(String userInput) {
-    String inputString = userInput;
-    inputString = inputString.toLowerCase();
+    String inputString = userInput.toLowerCase();
 
     if (isItPalindrome(inputString)) {
       System.out.print("\nIt's palindrome :) \n");
@@ -32,10 +45,9 @@ public class PalindromeChecker {
       if (inputString.charAt(start) != inputString.charAt(end)) {
         return false;
       }
-      start++;  
+      start++;
       end--;
     }
     return true;
   }
 }
-

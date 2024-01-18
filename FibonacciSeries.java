@@ -12,7 +12,7 @@ public class FibonacciSeries {
 
   private static void processingFibonacci(Scanner inputScanner) {
     System.out.println(
-      "\n\nEnter how long you want the Fibonacci series to be, max is 92.\n"
+      "\n\nEnter how long you want the Fibonacci series to be, max is 93.\n"
     );
     Integer userInput = inputScanner.nextInt();
 
@@ -23,7 +23,7 @@ public class FibonacciSeries {
       return;
     } else {
       long firstArray = 0, secondArray = 1;
-      System.out.println("\nFibonacci Series of " + userInput + " 3is: \n");
+      System.out.println("\nFibonacci Series of " + userInput + " is: \n");
 
       for (int i = 1; i <= userInput; i++) {
         System.out.print(firstArray);
